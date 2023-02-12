@@ -11,6 +11,8 @@
     --background-color: #2D2A37;
     --secondary-text-color: #6B6B6B;
     --primary-text-color: #EBEBEB;
+    --button-color: #2D2A37;
+    --highlight-button-color: #975DFA;
 }
 
 body {
@@ -28,19 +30,19 @@ body * {
 }
 
 #calculator {
-    width: 22rem;
-    height: 35rem;
+    /* width: 22rem;
+    height: 35rem; */
     
     background-color: var(--background-color);
     box-shadow: 
     0 .25rem .25rem rgba(0, 0, 0, 0.25),
     0 11.5rem 3.2rem rgba(0, 0, 0, 0.01),
-        0 7.5rem 3rem rgba(0, 0, 0, 0.04),
-        0 4.2rem 2.5rem rgba(0, 0, 0, 0.15),
-        0 1.8rem 1.8rem rgba(0, 0, 0, 0.26),
-        0 .5rem 1rem rgba(0, 0, 0, 0.29),
-        inset 0 .4rem .5rem rgba(255, 255, 255, 0.1),
-        inset 0 -.25rem .25rem rgba(0, 0, 0, 0.22);
+    0 7.5rem 3rem rgba(0, 0, 0, 0.04),
+    0 4.2rem 2.5rem rgba(0, 0, 0, 0.15),
+    0 1.8rem 1.8rem rgba(0, 0, 0, 0.26),
+    0 .5rem 1rem rgba(0, 0, 0, 0.29),
+    inset 0 .4rem .5rem rgba(255, 255, 255, 0.1),
+    inset 0 -.25rem .25rem rgba(0, 0, 0, 0.22);
 
     border-radius: 3rem;
 }
@@ -70,9 +72,66 @@ body * {
 }
 
 #keyboard {
-    margin-top: 1.6rem;
+    padding: 1.6rem 2rem 2rem;
+    
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: .7rem;
 }
 
 button {
+    border: 0;
+    width: 4rem;
+    height: 4rem;
 
+    background: linear-gradient(
+        180deg, rgba(0, 0, 0, 0.05) 0%,
+        rgba(255, 255, 255, 0.05) 100%), var(--button-color);
+
+    box-shadow: 
+        0 .6rem .5rem rgba(0, 0, 0, 0.01),
+        0 .5rem .5rem rgba(0, 0, 0, 0.04),
+        0 .25rem .4rem rgba(0, 0, 0, 0.1),
+        0 .15rem .25rem rgba(0, 0, 0, 0.26),
+        0 0 .15rem rgba(0, 0, 0, 0.29),
+        inset 0 .15rem .2rem rgba(255, 255, 255, 0.06);
+
+    border-radius: 50%;
+    font-size: 1.5rem;
+    line-height: 1.7rem;
+    color: var(--primary-text-color);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.secondary {
+    color: var(--highlight-button-color);
+}
+
+.tertiary {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0.01%,
+    rgba(255, 255, 255, 0.05) 100%), #462878;
+
+    box-shadow: 
+        0 .7rem .4rem rgba(0, 0, 0, 0.01),
+        0 .4rem .4rem rgba(0, 0, 0, 0.04),
+        0 .25rem .3rem rgba(0, 0, 0, 0.1),
+        0 .1rem .25rem rgba(0, 0, 0, 0.26),
+        0 0 .1rem rgba(0, 0, 0, 0.29),
+        inset 0 .1rem .15rem rgba(255, 255, 255, 0.1);
+}
+
+.quartiary {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%,
+    rgba(255, 255, 255, 0.05) 100%), #7F45E2;
+
+    box-shadow:
+        0 .7rem .4rem rgba(0, 0, 0, 0.01),
+        0 .4rem .4rem rgba(0, 0, 0, 0.04),
+        0 .25rem .3rem rgba(0, 0, 0, 0.1),
+        0 .1rem .25rem rgba(0, 0, 0, 0.26),
+        0 0 .1rem rgba(0, 0, 0, 0.29),
+        inset 0 .1rem .15rem rgba(255, 255, 255, 0.1);
 }
