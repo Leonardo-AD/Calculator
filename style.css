@@ -111,6 +111,11 @@ button {
     justify-content: center;
 }
 
+button:active{
+    box-shadow: 0 .1rem .5rem -.2rem black;
+    transform: translateY(0.100rem);
+}
+
 #cancel-entry {
     color: var(--highlight-button-color);
 }
