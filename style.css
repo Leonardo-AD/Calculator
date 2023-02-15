@@ -49,11 +49,11 @@ body * {
     inset 0 .4rem .5rem rgba(255, 255, 255, 0.1),
     inset 0 -.25rem .25rem rgba(0, 0, 0, 0.22);
 
-    border-radius: 3rem;
+    border-radius: 2rem;
 }
 
 #display {
-    margin-top: 3rem;
+    margin-top: 2rem;
     padding-inline: 3rem;
 }
 
