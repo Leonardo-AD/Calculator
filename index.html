@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="./style.css">
-    <script src="./script.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
@@ -18,11 +17,11 @@
         
         <section id="display">
 
-            <div id="last-calc">Operation</div>
+            <div id="last-calc"></div>
 
             <div id="result">
                 <img src="./assets/result.svg" alt="sinal de igual">
-                <span id="show-Value">|</span>
+                <span id="show-Value">0</span>
             </div>
 
         </section>
@@ -30,52 +29,54 @@
         <section id="keyboard">
 
             <button id="cancel-entry">CE</button>
-            <button>C</button>
+            <button id="clear">C</button>
 
-            <button>
+            <button id="percent-operator">
                 <img src="./assets/percent.svg" alt="sinal de porcentagem">
             </button>
 
-            <button class="operation-buttons">
+            <button class="operation-buttons" id="divide-operator">
                 <img src="./assets/divide.svg" alt="sinal de divisão">
             </button>
 
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
+            <button id="7-button">7</button>
+            <button id="8-button">8</button>
+            <button id="9-button">9</button>
 
-            <button class="operation-buttons">
+            <button class="operation-buttons" id="multiply-operator">
                 <img src="./assets/multiply.svg" alt="sinal de multiplicação">
             </button>
 
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
+            <button id="4-button">4</button>
+            <button id="5-button">5</button>
+            <button id="6-button">6</button>
 
-            <button class="operation-buttons">
+            <button class="operation-buttons" id="minus-operator">
                 <img src="./assets/minus.svg" alt="sinal de menos">
             </button>
 
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
+            <button id="1-button">1</button>
+            <button id="2-button">2</button>
+            <button id="3-button">3</button>
 
-            <button class="operation-buttons">
+            <button class="operation-buttons" id="more-operator">
                 <img src="./assets/plus.svg" alt="sinal de mais">
             </button>
 
-            <button>
+            <button id="more-minus-operator">
                 <img src="./assets/plusMinus.svg" alt="sinal de mais ou menos">
             </button>
 
-            <button>0</button>
-            <button>,</button>
+            <button id="0-button">0</button>
+            <button id="comma-operator">,</button>
 
-            <button id="equals-button">
+            <button id="equals-operator">
                 <img src="./assets/equals.svg" alt="sinal de igual">
             </button>
         </section>
 
-    </div>    
+    </div>
+
+    <script src="./script.js"></script>        
 </body>
 </html>

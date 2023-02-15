@@ -1,7 +1,11 @@
-// - Pegar o click de cada tecla
-//  -> separar teclas em números e sinais operadores
+'use strict'
 
-// - imprimir o valor de cada tecla no console.log e na div superior também
+const display = document.getElementById('show-Value')
+const numbers = document.querySelectorAll('[id*=button]')
 
-// - Fazer o cursor ficar piscando
+const insertNumber = (event) => display.textContent = event.target.textContent
+
+numbers.forEach(number => number.addEventListener('click', insertNumber))
+console.log(number)
+// - Fazer o cursor ficar piscando? (com css)
 
