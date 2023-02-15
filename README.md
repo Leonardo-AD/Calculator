@@ -17,7 +17,7 @@
 
 You can access the Rocketseat prototype by clicking the button below.
 
-<a href="https://www.figma.com/community/file/1202607074523509182">![Figma](https://img.shields.io/badge/Acessar%20Protótipo-2A2141?style=for-the-badge&logo=figma&logoColor=white)</a>
+<a href="https://www.figma.com/community/file/1202607074523509182">![Figma](https://img.shields.io/badge/Acess%20Prototype-2A2141?style=for-the-badge&logo=figma&logoColor=white)</a>
 
 ## Technologies
 
