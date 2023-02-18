@@ -6,8 +6,26 @@ const numbers = document.querySelectorAll('[id*=button]')
 const operators = document.querySelectorAll('[id*=operator]')
 
 
-// let to make the control of new values on display
+// variables to make the control of new values and operators on display
 let newNumber = true
+let operator
+let prevNumber
+
+
+// Checking pending operations and calculating numbers
+const pendingOperation = () => operator !== undefined
+
+const calculate = () => {
+    
+    if(pendingOperation()){
+        const currentNumber = parseFloat(display.textContent)
+        newNumber = true
+
+        if(operator == '+'){
+            updateDisplay(prevNumber + currentNumber)
+        }
+    }
+}
 
 
 // Show each number selected and cleaning the initial value (the cursor)
@@ -28,9 +46,15 @@ const insertNumber = (event) => updateDisplay(event.target.textContent)
 numbers.forEach(number => number.addEventListener('click', insertNumber))
 
 
-// Selecting an operator and cleaning the current value on display
-const selectOperator = () => {
-    newNumber = true
+// Selecting an operator, cleaning the current value on display and getting an operator
+const selectOperator = (event) => {
+    if(!newNumber){
+        
+        newNumber = true
+        operator = event.target.textContent
+        prevNumber = parseFloat(display.textContent)
+        console.log(operator)
+    }
 }
 
 
