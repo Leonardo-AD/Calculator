@@ -8,8 +8,8 @@ const operators = document.querySelectorAll('[id*=operator]')
 
 // variables to make the control of new values and operators on display
 let newNumber = true
-let operator = ''
-let prevNumber = ''
+let operator  
+let prevNumber
 
 
 // Checking pending operations and calculating numbers
@@ -21,11 +21,8 @@ const calculate = () => {
         const currentNumber = parseFloat(display.textContent)
         newNumber = true
 
-        if(operator == '+'){
-            console.log(prevNumber)
-            console.log(currentNumber)
-            updateDisplay(prevNumber + currentNumber)
-        }
+        const result = eval(`${prevNumber}${operator}${currentNumber}`)
+        updateDisplay(result)
     }
 }
 
@@ -63,6 +60,21 @@ const selectOperator = (event) => {
 
 // Getting operators when clicking
 operators.forEach(operator => operator.addEventListener('click', selectOperator))
+
+
+// Using equal operator to show the result
+const callEqual = () => {
+    calculate
+    operator = undefined
+}
+
+document.getElementById('equals-operator').addEventListener('click', callEqual)
+
+
+// Cleaning operation on display
+const clearOperation = () => display.textContent = ''
+document.getElementById('cancel-entry').addEventListener('click', clearOperation)
+
 
 
 // - Fazer o cursor ficar piscando? (com css video:30min)
