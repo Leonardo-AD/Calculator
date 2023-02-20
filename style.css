@@ -118,7 +118,7 @@ button:active{
     transform: translateY(0.07rem);
 }
 
-#cancel-entry {
+#clear {
     color: var(--highlight-button-color);
 }
 

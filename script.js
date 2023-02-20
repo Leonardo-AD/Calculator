@@ -8,8 +8,9 @@ const operators = document.querySelectorAll('[id*=operator]')
 
 // variables to make the control of new values and operators on display
 let newNumber = true
-let operator  
+let operator
 let prevNumber
+let currentNumber
 
 
 // Checking pending operations and calculating numbers
@@ -18,7 +19,7 @@ const pendingOperation = () => operator !== undefined
 const calculate = () => {
     
     if(pendingOperation()){
-        const currentNumber = parseFloat(display.textContent)
+        const currentNumber = parseFloat(display.textContent.replace(',','.'))
         newNumber = true
 
         const result = eval(`${prevNumber}${operator}${currentNumber}`)
@@ -31,11 +32,11 @@ const calculate = () => {
 const updateDisplay = (text) => {
     
     if(newNumber){
-        display.textContent = text
+        display.textContent = text.toLocaleString('BR')
         newNumber = false
     }
     else{
-        display.textContent += text
+        display.textContent += text.toLocaleString('BR')
     }
 }
 
@@ -52,8 +53,7 @@ const selectOperator = (event) => {
         calculate()
         newNumber = true
         operator = event.target.textContent
-        prevNumber = parseFloat(display.textContent)
-        console.log(operator)
+        prevNumber = parseFloat(display.textContent.replace(',','.'))
     }
 }
 
@@ -64,17 +64,58 @@ operators.forEach(operator => operator.addEventListener('click', selectOperator)
 
 // Using equal operator to show the result
 const callEqual = () => {
-    calculate
+    calculate //``` BUG HERE: i cannot continue the operation after click the iqual button ```
     operator = undefined
 }
 
 document.getElementById('equals-operator').addEventListener('click', callEqual)
 
 
-// Cleaning operation on display
-const clearOperation = () => display.textContent = ''
-document.getElementById('cancel-entry').addEventListener('click', clearOperation)
+// Cleaning all the operation on display
+const clearEntry = () => display.textContent = ''
+
+const clearOperation = () => {
+    clearEntry() // Same function to clear the display
+    operator = undefined
+    newNumber = true
+    prevNumber = undefined
+}
+
+document.getElementById('clear').addEventListener('click', clearOperation)
+
+
+// Backspace button
+const removeLastNumber = () => display.textContent = display.textContent.slice(0,-1)
+document.getElementById('backspace').addEventListener('click',removeLastNumber)
+
+
+// Change operation sign
+const changeSign = () => {
+    newNumber = true
+    updateDisplay(display.textContent * -1)
+}
+
+document.getElementById('more-minus-button').addEventListener('click', changeSign)
+
+
+// Inserting decimal values
+const existDecimal = () => display.textContent.indexOf(',') !== -1
+const existValue = () => display.textContent.length > 0
+
+const insertDecimal = () => {
+    
+    if(!existDecimal()){
+        if(existValue()){
+            updateDisplay(',')
+        }
+        else{
+            updateDisplay('0,')
+        }
+    }
+}
+
+document.getElementById('comma').addEventListener('click', insertDecimal)
 
 
 
-// - Fazer o cursor ficar piscando? (com css video:30min)
+// (video:59min)
