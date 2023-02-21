@@ -4,7 +4,7 @@
 const display = document.getElementById('show-Value')
 const numbers = document.querySelectorAll('[id*=button]')
 const operators = document.querySelectorAll('[id*=operator]')
-
+let historic = document.getElementById('last-calc')
 
 // variables to make the control of new values and operators on display
 let newNumber = true
@@ -21,7 +21,7 @@ const calculate = () => {
     if(pendingOperation()){
         const currentNumber = parseFloat(display.textContent.replace(',','.'))
         newNumber = true
-
+        
         const result = eval(`${prevNumber}${operator}${currentNumber}`)
         updateDisplay(result)
     }
@@ -42,7 +42,11 @@ const updateDisplay = (text) => {
 
 
 // Getting numbers when clicking
-const insertNumber = (event) => updateDisplay(event.target.textContent)
+const insertNumber = (event) => {
+    updateDisplay(event.target.textContent)
+    historic.innerHTML += event.target.textContent
+}
+
 numbers.forEach(number => number.addEventListener('click', insertNumber))
 
 
@@ -51,8 +55,11 @@ const selectOperator = (event) => {
     
     if(!newNumber){
         calculate()
+
         newNumber = true
+        historic.innerHTML += event.target.textContent 
         operator = event.target.textContent
+
         prevNumber = parseFloat(display.textContent.replace(',','.'))
     }
 }
@@ -65,15 +72,20 @@ operators.forEach(operator => operator.addEventListener('click', selectOperator)
 // Using equal operator to show the result
 const callEqual = () => { 
     calculate
+    
     operator = undefined
     newNumber = false
+    historic.innerHTML += display.textContent
 }
 
 document.getElementById('equals-operator').addEventListener('click', callEqual)
 
 
 // Cleaning all the operation on display
-const clearEntry = () => display.textContent = ''
+const clearEntry = () => {
+    display.textContent = '' 
+    historic.textContent = ''
+}    
 
 const clearOperation = () => {
     clearEntry() // Same function to clear the display
@@ -86,7 +98,14 @@ document.getElementById('clear').addEventListener('click', clearOperation)
 
 
 // Backspace button
-const removeLastNumber = () => display.textContent = display.textContent.slice(0,-1)
+const removeLastNumber = () => {
+    display.textContent = display.textContent.slice(0,-1)
+    historic.textContent = historic.textContent.slice(0,-1)
+
+    if(display.textContent == ''){
+        historic.innerHTML = ''
+    }
+}
 document.getElementById('backspace').addEventListener('click',removeLastNumber)
 
 
@@ -108,9 +127,11 @@ const insertDecimal = () => {
     if(!existDecimal()){
         if(existValue()){
             updateDisplay(',')
+            historic.innerHTML += ','
         }
         else{
             updateDisplay('0,')
+            historic.innerHTML += '0,'
         }
     }
 }
@@ -121,8 +142,11 @@ document.getElementById('comma').addEventListener('click', insertDecimal)
 // Pi button
 const addPiOnDisplay = () => {
     calculate
+
     newNumber = false
     display.textContent = 3.14
+
+    historic.innerHTML += 3.14
     currentNumber = 3.14
 } 
 
@@ -156,13 +180,17 @@ const keyboardMap = {
 }
 
 const mappingKeyboard = (event) => {
+    
     const key = event.key
-
     const allowedKey = () => Object.keys(keyboardMap).indexOf(key) !== -1
     
     if(allowedKey()){
-        document.getElementById(keyboardMap[key]).click()
-    }    
+
+        document.getElementById(keyboardMap[key]).click() 
+        // if(key !== 'Enter' && key !== 'Backspace' && key !== 'c' && key !== 'C' && key !== 'p' && key !== 'P' && key !== '='){
+        //     historic.innerHTML += key
+        // }    
+    } 
 }
 
 document.addEventListener('keydown', mappingKeyboard)
