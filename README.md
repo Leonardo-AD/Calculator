@@ -7,6 +7,10 @@
 - [x] Animation when clicking buttons
 - [x] Responsivity
 - [x] Perform mathematical operations
+- [x] Use the keyboard to perform operations
+- [x] Use 'p' or 'P' to call Pi key
+- [x] Use 'c' or 'C' to clear the display and the operations on memory
+- [x] Use the Backspace key to clear each character
 
 ## Screenshots
 
