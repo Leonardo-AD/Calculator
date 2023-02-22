@@ -6,12 +6,13 @@
 
 - [x] Animation when clicking buttons
 - [x] Responsivity
+- [x] Perform mathematical operations
 
 ## Screenshots
 
 <p>The interface</p>
 
-<img src="./images/interface.png" width="500"/> 
+<img src="./images/interface01.png" width="500"/> 
 
 ## Prototype
 
