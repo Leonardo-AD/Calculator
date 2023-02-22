@@ -185,11 +185,7 @@ const mappingKeyboard = (event) => {
     const allowedKey = () => Object.keys(keyboardMap).indexOf(key) !== -1
     
     if(allowedKey()){
-
         document.getElementById(keyboardMap[key]).click() 
-        // if(key !== 'Enter' && key !== 'Backspace' && key !== 'c' && key !== 'C' && key !== 'p' && key !== 'P' && key !== '='){
-        //     historic.innerHTML += key
-        // }    
     } 
 }
 

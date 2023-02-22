@@ -55,15 +55,17 @@ body * {
 
 #display {
     margin-top: 2rem;
-    padding-inline: 3rem;
+    padding-inline: 2.5rem;
 }
 
 #last-calc {
     text-align: right;
-    font-size: 1rem;
-    line-height: 140%;
+    font-size: .9rem;
+    line-height: 120%;
     color: var(--secondary-text-color);
     height: 2rem;
+    letter-spacing: .05rem;
+    max-width: 17rem;
 }
 
 #result {
@@ -73,9 +75,10 @@ body * {
 }
 
 #result span {
-    font-size: 2.2rem;
+    font-size: 1.9rem;
     line-height: 140%;
     color: var(--primary-text-color);
+    height: 1.9rem;
 }
 
 #keyboard {
@@ -146,4 +149,24 @@ button:active{
         0 .1rem .25rem rgba(0, 0, 0, 0.26),
         0 0 .1rem rgba(0, 0, 0, 0.29),
         inset 0 .1rem .15rem rgba(255, 255, 255, 0.1);
+}
+
+#pi-button,
+#minus-operator,
+#multiply-operator{
+    font-size: 2rem;
+    text-align: center;
+}
+
+#more-operator,
+#equals-operator{
+    font-size: 1.3rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+#backspace{
+    font-size: 1.7rem;
+    text-align: center;
+    font-weight: bold;
 }
