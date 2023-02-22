@@ -12,7 +12,7 @@
 
 <p>The interface</p>
 
-<img src="./images/interface01.png" width="500"/> 
+<img src="./images/interface01.png" width="700"/> 
 
 ## Prototype
 
