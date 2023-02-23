@@ -32,11 +32,11 @@ const calculate = () => {
 const updateDisplay = (text) => {
     
     if(newNumber){
-        display.textContent = text.toLocaleString('BR')
+        display.textContent = text
         newNumber = false
     }
     else{
-        display.textContent += text.toLocaleString('BR')
+        display.textContent += text.toLocaleString('br-BR')
     }
 }
 
@@ -102,10 +102,11 @@ const removeLastNumber = () => {
     display.textContent = display.textContent.slice(0,-1)
     historic.textContent = historic.textContent.slice(0,-1)
 
-    if(display.textContent == ''){
+    if(display.textContent == '' && currentNumber){
         historic.innerHTML = ''
     }
 }
+
 document.getElementById('backspace').addEventListener('click',removeLastNumber)
 
 
